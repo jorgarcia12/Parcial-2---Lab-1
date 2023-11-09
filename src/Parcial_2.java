@@ -6,27 +6,28 @@ public class Parcial_2 {
         Scanner sc = new Scanner(System.in);
         ArrayList <String> adn = new ArrayList<>();
         int vueltas = 0;
-        while (vueltas<6){
-            System.out.println("Ingrese una cadena de ADN: ");
-            String n = sc.nextLine();
-            String cadena_adn = n.toUpperCase();
-            if (chequearLargo(cadena_adn)){
-                if(revisarCaracteres(cadena_adn)){
-                    adn.add(cadena_adn);
-                    vueltas++;
+        int op = 0;
+            while (vueltas<6){
+                System.out.println("Ingrese una cadena de ADN: ");
+                String n = sc.nextLine();
+                String cadena_adn = n.toUpperCase();
+                if (chequearLargo(cadena_adn)){
+                    if(revisarCaracteres(cadena_adn)){
+                        adn.add(cadena_adn);
+                        vueltas++;
+                    }else {
+                        System.out.println("Los unicos caracteres validos son: (A) (C) (G) (T) ");
+                    }
                 }else {
-                    System.out.println("Los unicos caracteres validos son: (A) (C) (G) (T) ");
+                    System.out.println("Ingrese nuevamente y recuerde, el largo de la cadena debe ser de 6 lugares: ");
                 }
-            }else {
-                System.out.println("Ingrese nuevamente y recuerde, el largo de la cadena debe ser de 6 lugares: ");
-            }
-        }
 
-        if (isMutant(adn)){
-            System.out.println("El ADN ingresado pertenece a un mutante!");
-        }else {
-            System.out.println("El ADN ingresado es de un humano!");
-        }
+            }
+            if (isMutant(adn)){
+                System.out.println("El ADN ingresado pertenece a un mutante!");
+            }else {
+                System.out.println("El ADN ingresado es de un humano!");
+            }
     }
     /* Funcion para revisar el largo de las cadenas */
     private static boolean chequearLargo(String cadena_adn) {
